@@ -251,7 +251,7 @@ struct field *field_select(const char *label){
 		return NULL;
 
 	if (!strcmp(f->label, "MENU")){
-		dialog_box("Radio", "10M/12M/15M/17M/20M/30M/40M/60M/80M/AGC/VFO/SPLIT/CLOSE");
+		dialog_box("Radio", "10M/12M/15M/17M/20M/30M/40M/60M/80M/AGC/VFO/SPLIT/CLOSE/SHUTDOWN");
 		return NULL;
 	}
 
@@ -278,6 +278,22 @@ struct field *field_select(const char *label){
 	}
 	else if (!strcmp(f_selected->label, "SAVE")){
 		logbook_init();
+	}
+	else if (!strcmp(f->label, "SHUTDOWN")) {
+		f_selected = NULL;
+		struct field *f = dialog_box("Continue with Shutdown?", "CANCEL/CONFIRM");
+		Serial.println("Checking for confirmation");
+		f_selected = NULL;
+		return NULL;
+	}
+	else if (!strcmp(f->label, "CONFIRM")) {
+		f_selected = NULL;
+		Serial.println("Yup, shutdown the radio");
+		f->label = "SHUTDOWN";
+		field_post_to_radio(f);
+		dialog_box("Please wait...", "WAITFORSHUTDOWN");
+		f_selected = NULL;
+		return NULL;
 	}
 
 /*

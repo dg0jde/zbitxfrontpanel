@@ -30,7 +30,7 @@ struct field main_list[] = {
   {FIELD_TEXT, 144, 72, 48, 24, TFT_BLACK, "SENT", "", "0,10"},
   {FIELD_TEXT, 192, 72, 48, 24, TFT_BLACK, "NR", "", "0,10"},
 
-	//METERS is not SMETERS to prevent spiralling of request/responses
+  //METERS is not SMETERS to prevent spiralling of request/responses
   {FIELD_SMETER, 243, 3, 180, 15, TFT_BLACK, "METERS", "0", "0/10000/1"},
   //keyboard fields, keeping them just under the permanent fields
   //ensures that they get detected first  
@@ -96,7 +96,7 @@ struct field main_list[] = {
   {FIELD_BUTTON, 384, 272, 48, 48,  TFT_BLACK, "F8", "RRR"},
   {FIELD_BUTTON, 432, 272, 48, 48,  TFT_BLACK, "F9", "RRR"},
 
-	// this will get over written by the keyboard 
+  // this will get over written by the keyboard 
   {FIELD_CONSOLE, 240, 120, 240, 152,  TFT_BLACK, "CONSOLE", "Hello!"},  
   {FIELD_TEXT, 48,48, 96, 24, TFT_BLACK, "CALLSIGN", "", "0,10"},
   {FIELD_TEXT, 240, 96, 240, 24,  TFT_BLACK, "TEXT", "", "0/40"},  
@@ -128,7 +128,7 @@ struct field main_list[] = {
   {FIELD_KEY, 20000, 20000, 0, 0,  TFT_BLACK, "VFOB", "7050000"},      
   {FIELD_KEY, 20000, 20000, 0, 0,  TFT_BLACK, "RIT_DELTA", "0", "-25000/25000/1"},      
 
-	{FIELD_STATIC, 24, 96, SCREEN_WIDTH-96,  100, TFT_BLACK, "QSODEL", "0", ""}, 	
+  {FIELD_STATIC, 24, 96, SCREEN_WIDTH-96,  100, TFT_BLACK, "QSODEL", "0", ""}, 	
 
   {FIELD_NUMBER, 0, 272, 48, 48, TFT_BLACK, "REF", "0", "0/5000/1"},
   {FIELD_NUMBER, 0, 272, 48, 48, TFT_BLACK, "POWER", "0", "0/10000/1"},
@@ -139,10 +139,9 @@ struct field main_list[] = {
   {FIELD_NUMBER, 0, 272, 48, 48, TFT_BLACK, "HIGH", "0", "0/5000/1"},
   {FIELD_NUMBER, 0, 272, 48, 48, TFT_BLACK, "LOW", "0", "0/5000/1"},
 
-	/* alert box */
-
-	{FIELD_TITLE, 24, 8, SCREEN_WIDTH-96, 48, TFT_BLACK, "TITLE", "Hi", ""}, 	
-	{FIELD_STATIC, 24, 96, SCREEN_WIDTH-96,  100, TFT_BLACK, "MESSAGE", "Hi", ""}, 	
+  /* alert box */
+  {FIELD_TITLE, 24, 8, SCREEN_WIDTH-96, 48, TFT_BLACK, "TITLE", "Hi", ""}, 	
+  {FIELD_STATIC, 24, 96, SCREEN_WIDTH-96,  100, TFT_BLACK, "MESSAGE", "Hi", ""}, 	
   {FIELD_BUTTON, 24, 248, 96, 48, TFT_GREEN, "OK", ""},   
   {FIELD_BUTTON, 24, 248, 96, 48, TFT_RED, "DELETE", ""},   
   {FIELD_BUTTON, 24, 248, 96, 48, TFT_BLACK, "CLOSE", ""},   
@@ -160,9 +159,10 @@ struct field main_list[] = {
   {FIELD_BUTTON, 408, 48, 48, 48,  TFT_BLACK, "80M", "1"},
   {FIELD_SELECTION, 24, 96, 48, 48,  TFT_BLACK, "AGC", "MED", "OFF/SLOW/MED/FAST"},
   {FIELD_SELECTION, 72, 96, 48, 48,  TFT_BLACK, "VFO", "A", "A/B"},
-  {FIELD_SELECTION, 120, 96, 48, 48,  TFT_BLACK, "SPLIT", "OFF", "ON/OFF"},  
-	/* settings */
+  {FIELD_SELECTION, 120, 96, 48, 48,  TFT_BLACK, "SPLIT", "OFF", "ON/OFF"},
+  {FIELD_BUTTON, 360, 248, 96, 48, TFT_RED, "SHUTDOWN", ""},
 
+  /* settings */
   {FIELD_STATIC, 26,48, 96, 0, TFT_BLACK, "MY CALL", "MY CALL:", "0/10"},
   {FIELD_TEXT, 24, 62, 96, 24, TFT_BLACK, "MYCALLSIGN", "", "0/10"},
   {FIELD_STATIC, 146,48, 96, 0, TFT_BLACK, "MY GRID", "MY GRID:", "0/10"},
@@ -172,7 +172,11 @@ struct field main_list[] = {
   {FIELD_SELECTION, 24,112, 96, 48, TFT_BLACK, "CW_INPUT", "", "IAMBIC/IAMBICB/STRAIGHT"},
   {FIELD_NUMBER, 144, 112, 96, 48, TFT_BLACK, "CW_DELAY", "300", "50/1000/50"},
   {FIELD_NUMBER, 264, 112, 96, 48,  TFT_BLACK, "SIDETONE", "80", "0/100/5"},
-	
+
+  /* Shutdown confirmation dialog */
+  {FIELD_BUTTON, 360, 148, 96, 48, TFT_RED, "CONFIRM", ""},
+  {FIELD_STATIC, 26,48, 96, 0, TFT_RED, "WAITFORSHUTDOWN", "Please wait a few seconds before removing power!", ""},
+
   {-1}
 };
 #endif
